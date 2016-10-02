@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             mAnimItem.setImageResource(R.mipmap.ic_launcher);
             mContentView.addView(mAnimItem, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
+            //mAnimItem.setTranslationY(591-mContentTop);
 
             final ValueAnimator anim = new ValueAnimator();
             anim.setObjectValues(mStart, mEnd);
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     PointF st = (PointF) startValue;
                     PointF ed = (PointF) endValue;
                     float t = fraction * mDuration;
-                    float y = mContentTop+1F / 2F * t * t * g / 3600F;
+                    float y = mStart.y-mContentTop+1F / 2F * t * t * g / 3600F;
                     float x = t * vx;
 
                     final PointF md = new PointF(x, y);
